@@ -1,7 +1,6 @@
 export default function Header() {
     return (
         <header>
-            {/* <!-- Navigation --> */}
             <h1><a className="home" href="#">GamesPlay</a></h1>
             <nav>
                 <a href="#">All games</a>
