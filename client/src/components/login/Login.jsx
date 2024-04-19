@@ -12,7 +12,7 @@ export default function Login() {
                     <input type="password" id="login-password" name="password" />
                     <input type="submit" className="btn submit" value="Login" />
                     <p className="field">
-                        <span>If you don`&apos;`t have profile click <a href="#">here</a></span>
+                        <span>If you don&apos;t have profile click <a href="#">here</a></span>
                     </p>
                 </div>
             </form>
