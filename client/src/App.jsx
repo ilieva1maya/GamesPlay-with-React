@@ -1,6 +1,10 @@
 import Catalog from "./components/catalog/Catalog"
+import Details from "./components/details/Details"
+import Edit from "./components/edit/Edit"
 import Header from "./components/header/Header"
 import Home from "./components/home/Home"
+import Login from "./components/login/Login"
+import Register from "./components/register/Register"
 
 function App() {
 
@@ -10,7 +14,11 @@ function App() {
         <Header />
         <Home />
         <Catalog />
-      </div>
+        <Details/>
+        <Edit />
+        <Login />
+        <Register />
+        </div>
     </>
   )
 }
