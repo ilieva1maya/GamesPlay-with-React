@@ -1,0 +1,26 @@
+{
+    "1b82a613-c45f-43aa-81c8-ad956588e1cd": {
+        "title": "Future before the past",
+        "category": "Mystery",
+        "maxLevel": "999",
+        "imageUrl": "https://www.google.com/imgres?q=mystery%20game&imgurl=https%3A%2F%2Fftw.usatoday.com%2Fwp-content%2Fuploads%2Fsites%2F90%2F2022%2F01%2Fcrimes-and-punishments-sherlock-holmes-02-e1641553303272.jpg%3Fw%3D1000%26h%3D600%26crop%3D1&imgrefurl=https%3A%2F%2Fftw.usatoday.com%2Flists%2Fbest-detective-games&docid=WzdYgU6KpmfqWM&tbnid=qGcz3kYmiuVWeM&vet=12ahUKEwjCrLWCs86FAxVLA9sEHXpRDOIQM3oECGMQAA..i&w=1000&h=600&hcb=2&ved=2ahUKEwjCrLWCs86FAxVLA9sEHXpRDOIQM3oECGMQAA",
+        "summary": "Which is first? The Future or the Past?",
+        "_id": "1b82a613-c45f-43aa-81c8-ad956588e1cd"
+    },
+    "db20957d-781c-477f-918a-91415b077d58": {
+        "title": "The Elephant jump",
+        "category": "Fun",
+        "maxLevel": "21",
+        "imageUrl": "https://www.google.com/imgres?q=elephant%20game&imgurl=https%3A%2F%2Fplay-lh.googleusercontent.com%2FtQynzvU1AqAfTQnKDagei_kEws20Fl_3jr4FlmJAUn5AzQq9bGcqYub9yeYqaRYaEQ&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dtalking.toy.funny.elephant%26hl%3Den_US&docid=Q3fPo6Jbll250M&tbnid=KsZ4g7PtTmKuyM&vet=12ahUKEwiU4YK21NWFAxVHSPEDHaDKBzAQM3oECHwQAA..i&w=512&h=512&hcb=2&ved=2ahUKEwiU4YK21NWFAxVHSPEDHaDKBzAQM3oECHwQAA",
+        "summary": "Jump, jump! Higher you jump, closer you come!",
+        "_id": "db20957d-781c-477f-918a-91415b077d58"
+    },
+    "8ed6bf21-fd83-4981-92ae-c2379973f48f": {
+        "title": "Save the Queen",
+        "category": "Quest",
+        "maxLevel": "57",
+        "imageUrl": "https://www.google.com/imgres?q=quest%20game&imgurl=https%3A%2F%2Fcdn.akamai.steamstatic.com%2Fsteam%2Fapps%2F428880%2Fss_daecd13cfedfa08709c52b544fea2411769c4013.1920x1080.jpg%3Ft%3D1667030814&imgrefurl=https%3A%2F%2Fstore.steampowered.com%2Fapp%2F428880%2FThe_Quest%2F&docid=fwFyUvk5tXhAEM&tbnid=-BECGtT3jbiiRM&vet=12ahUKEwjMjsKC4NWFAxWeX_EDHaA6AHwQM3oECBQQAA..i&w=1920&h=1080&hcb=2&ved=2ahUKEwjMjsKC4NWFAxWeX_EDHaA6AHwQM3oECBQQAA",
+        "summary": "The Queen is in danger! Be quick or loose the freedom of the Kingdom!",
+        "_id": "8ed6bf21-fd83-4981-92ae-c2379973f48f"
+    }
+}

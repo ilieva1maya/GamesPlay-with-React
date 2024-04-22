@@ -1,9 +1,10 @@
-import { create } from "../../services/gameService"
+import * as gameService from "../../services/gameService"
+import { useNavigate } from "react-router-dom";
 
 export default function Create() {
-    const createGameSubmitHandler = (e) => {
-        e.preventDefault()
-
+    const navigate = useNavigate();
+    const createGameSubmitHandler = async (e) => {
+        e.preventDefault();
         // const {
         //     title,
         //     category,
@@ -13,9 +14,19 @@ export default function Create() {
         // } = Object.fromEntries(new FormData(e.currentTarget))
         // ИЛИ
 
-        const gameData = Object.fromEntries(new FormData(e.currentTarget))
+        const gameData = Object.fromEntries(new FormData(e.currentTarget));
 
-        create(gameData)       
+        try {
+            // понеже никъде не използваме result
+            // const result = await gameService.create(gameData);
+            // можем да го направим така
+            await gameService.create(gameData);
+            navigate('/catalog');
+        } catch (error) {
+            // в последствие някаква логика, нотификация за грешки
+            console.log(error);
+        }
+
     }
 
     return (
