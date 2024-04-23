@@ -15,14 +15,19 @@ export const getAll = async () => {
 }
 
 export const create = async (gameData) => {
-    const response = await fetch(baseUrl, {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(gameData)
-    })
+    // стандартен fetch
+    // const response = await fetch(baseUrl, {
+    //     method: "POST",
+    //     headers: {
+    //         'content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify(gameData)
+    // })
+    // const result = await response.json();
+    // return result;
 
-    const result = await response.json();
-    return result;
+    // или абстракция с помощна fetch функция
+    const result = await request('POST', baseUrl, gameData);
+
+    return result
 }
