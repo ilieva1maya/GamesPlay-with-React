@@ -4,5 +4,17 @@
         "username": "Maria",
         "text": "Nice game",
         "_id": "1381289d-758c-4629-8ac5-d652f200f2ee"
+    },
+    "b97c0962-b917-4130-bbc4-90b3ae017cd7": {
+        "id": "8ed6bf21-fd83-4981-92ae-c2379973f48f",
+        "username": "Boris",
+        "text": "This comment is showing on each game!",
+        "_id": "b97c0962-b917-4130-bbc4-90b3ae017cd7"
+    },
+    "ea5f5a0e-d27c-4733-a433-10ca13a23752": {
+        "id": "1b82a613-c45f-43aa-81c8-ad956588e1cd",
+        "username": "Ivan",
+        "text": "What a Game!!!",
+        "_id": "ea5f5a0e-d27c-4733-a433-10ca13a23752"
     }
 }
