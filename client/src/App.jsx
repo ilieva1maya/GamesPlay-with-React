@@ -21,6 +21,7 @@ function App() {
           <Route path='/edit' element={<Edit />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/catalog/:id' element={<Details />}/>
         </Routes>
       </div>
     </>

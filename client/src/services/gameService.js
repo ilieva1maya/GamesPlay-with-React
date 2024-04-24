@@ -14,6 +14,11 @@ export const getAll = async () => {
     return Object.values(result);
 }
 
+export const getOne = async (id) => {
+    const result = await request('GET', `${baseUrl}/${id}`);
+    return result;
+}
+
 export const create = async (gameData) => {
     // стандартен fetch
     // const response = await fetch(baseUrl, {
