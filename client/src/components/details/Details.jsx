@@ -26,7 +26,9 @@ export default function Details() {
             id,
             formData.get('username'),
             formData.get('comment'),
-        );       
+        );
+
+        setComments(state => [...state, newComment]);
     }
 
     return (
