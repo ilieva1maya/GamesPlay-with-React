@@ -13,7 +13,7 @@ export default function Details() {
         gameService.getOne(id)
             .then(setGame)
 
-        commentService.getAll()
+        commentService.getAll(id)
             .then(setComments)
     }, [id]);
 
