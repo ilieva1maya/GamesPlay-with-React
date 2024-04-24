@@ -2,14 +2,19 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
+import Comment from "../details/Comment";
 
 export default function Details() {
     const [game, setGame] = useState({});
+    const [comments, setComments] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
         gameService.getOne(id)
             .then(setGame)
+
+        commentService.getAll()
+            .then(setComments)
     }, [id]);
 
     const addCommentHandler = async (e) => {
@@ -21,9 +26,7 @@ export default function Details() {
             id,
             formData.get('username'),
             formData.get('comment'),
-        );
-
-        console.log(newComment);
+        );       
     }
 
     return (
@@ -47,15 +50,18 @@ export default function Details() {
                     <h2>Comments:</h2>
                     <ul>
                         {/* <!-- list all comments for current game (If any) --> */}
-                        <li className="comment">
-                            <p>Content: I rate this one quite highly.</p>
-                        </li>
-                        <li className="comment">
-                            <p>Content: The best game.</p>
-                        </li>
+
+                        {comments.map(comment => (
+                            <Comment
+                             key={comment._id} {...comment} />))}
+
                     </ul>
                     {/* <!-- Display paragraph: If there are no games in the database --> */}
-                    <p className="no-comment">No comments.</p>
+
+                    {comments.length === 0 && (
+                        <p className="no-comment">No comments.</p>
+                    )}
+
                 </div>
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
@@ -70,7 +76,7 @@ export default function Details() {
             <article className="create-comment">
                 <label>Add new comment:</label>
                 <form className="form" onSubmit={addCommentHandler}>
-                    <input type="text" name="username" placeholder="username"/>
+                    <input type="text" name="username" placeholder="username" />
                     <textarea name="comment" placeholder="Comment......"></textarea>
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
