@@ -8,17 +8,18 @@ import Home from "./components/home/Home"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import { Routes, Route } from "react-router-dom"
+import AuthContext from "./contexts/authContext"
 
 function App() {
 
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values)=> {
+  const loginSubmitHandler = (values) => {
     console.log(values)
   }
 
   return (
-    <>
+    <AuthContext.Provider value={{ loginSubmitHandler }}>
       <div id="box">
         <Header />
         <Routes>
@@ -27,12 +28,14 @@ function App() {
           <Route path='/create' element={<Create />} />
           <Route path='/details' element={<Details />} />
           <Route path='/edit' element={<Edit />} />
-          <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} />
+          <Route path='/login' element={<Login />} />
+          {/* ако не подаваме през context, а през props */}
+          {/* <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} /> */}
           <Route path='/register' element={<Register />} />
-          <Route path='/catalog/:id' element={<Details />}/>
+          <Route path='/catalog/:id' element={<Details />} />
         </Routes>
       </div>
-    </>
+    </AuthContext.Provider>
   )
 }
 
