@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Catalog from "./components/catalog/Catalog"
 import Create from "./components/create/Create"
 import Details from "./components/details/Details"
@@ -9,6 +10,13 @@ import Register from "./components/register/Register"
 import { Routes, Route } from "react-router-dom"
 
 function App() {
+
+  const [auth, setAuth] = useState({});
+
+  const loginSubmitHandler = (values)=> {
+    console.log(values)
+  }
+
   return (
     <>
       <div id="box">
@@ -19,7 +27,7 @@ function App() {
           <Route path='/create' element={<Create />} />
           <Route path='/details' element={<Details />} />
           <Route path='/edit' element={<Edit />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} />
           <Route path='/register' element={<Register />} />
           <Route path='/catalog/:id' element={<Details />}/>
         </Routes>
