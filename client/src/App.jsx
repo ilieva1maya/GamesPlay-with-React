@@ -7,12 +7,12 @@ import Header from "./components/header/Header"
 import Home from "./components/home/Home"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import AuthContext from "./contexts/authContext"
 import * as authService from "./services/authService"
 
 function App() {
-
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
   const loginSubmitHandler = async (values) => {
@@ -22,7 +22,8 @@ function App() {
     // струва ми се, че трябва да е същото, но не се получава, трябва да видя защо
     // const result = await authService.login(Object.values(values))
 
-    console.log(result);
+    setAuth(result);
+    navigate('/');
   }
 
   return (
