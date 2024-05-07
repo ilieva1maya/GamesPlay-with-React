@@ -28,19 +28,19 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler }}>
+    <AuthContext.Provider value={{ loginSubmitHandler, ...auth }}>
       <div id="box">
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/catalog' element={<Catalog />} />
-          <Route path='/create' element={<Create />} />
-          <Route path='/details' element={<Details />} />
-          <Route path='/edit' element={<Edit />} />
-          <Route path='/login' element={<Login />} />
+          <Route path={Path.Home} element={<Home />} />
+          <Route path={Path.Catalog} element={<Catalog />} />
+          <Route path={Path.Create} element={<Create />} />
+          <Route path={Path.Details} element={<Details />} />
+          <Route path={Path.Edit} element={<Edit />} />
+          <Route path={Path.Login} element={<Login />} />
           {/* ако не подаваме през context, а през props */}
           {/* <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} /> */}
-          <Route path='/register' element={<Register />} />
+          <Route path={Path.Register} element={<Register />} />
           <Route path='/catalog/:id' element={<Details />} />
         </Routes>
       </div>
