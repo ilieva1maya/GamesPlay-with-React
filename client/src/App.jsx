@@ -9,13 +9,20 @@ import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import { Routes, Route } from "react-router-dom"
 import AuthContext from "./contexts/authContext"
+import * as authService from "./services/authService"
 
 function App() {
 
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values)
+  const loginSubmitHandler = async (values) => {
+    
+    const result = await authService.login(values.email, values.password)
+
+    // струва ми се, че трябва да е същото, но не се получава, трябва да видя защо
+    // const result = await authService.login(Object.values(values))
+
+    console.log(result);
   }
 
   return (
