@@ -17,7 +17,7 @@ function App() {
   const [auth, setAuth] = useState({});
 
   const loginSubmitHandler = async (values) => {
-    
+
     const result = await authService.login(values.email, values.password)
 
     // струва ми се, че трябва да е същото, но не се получава, трябва да видя защо
@@ -27,8 +27,15 @@ function App() {
     navigate(Path.Home);
   }
 
+  const values = {
+    loginSubmitHandler,
+    username: auth.username,
+    email: auth.email,
+    isAuthenticated: !!auth.username,
+  }
+
   return (
-    <AuthContext.Provider value={{ loginSubmitHandler, ...auth }}>
+    <AuthContext.Provider value={values}>
       <div id="box">
         <Header />
         <Routes>
