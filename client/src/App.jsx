@@ -10,6 +10,7 @@ import Register from "./components/register/Register"
 import { Routes, Route, useNavigate } from "react-router-dom"
 import AuthContext from "./contexts/authContext"
 import * as authService from "./services/authService"
+import Path from "./paths"
 
 function App() {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ function App() {
     // const result = await authService.login(Object.values(values))
 
     setAuth(result);
-    navigate('/');
+    navigate(Path.Home);
   }
 
   return (
