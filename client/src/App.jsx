@@ -17,9 +17,7 @@ function App() {
   const [auth, setAuth] = useState({});
 
   const loginSubmitHandler = async (values) => {
-
-    const result = await authService.login(values.email, values.password)
-
+    const result = await authService.login(values.email, values.password);
     // струва ми се, че трябва да е същото, но не се получава, трябва да видя защо
     // const result = await authService.login(Object.values(values))
 
@@ -27,11 +25,19 @@ function App() {
     navigate(Path.Home);
   }
 
+  const registerSubmitHandler = async (values) => {
+    const result = await authService.register(values.email, values.password);
+
+    setAuth(result);
+    navigate(Path.Home);
+  }
+
   const values = {
     loginSubmitHandler,
-    username: auth.username,
+    registerSubmitHandler,
+    username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.username,
+    isAuthenticated: !!auth.email,
   }
 
   return (
