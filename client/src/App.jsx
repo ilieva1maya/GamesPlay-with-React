@@ -11,6 +11,7 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 import AuthContext from "./contexts/authContext"
 import * as authService from "./services/authService"
 import Path from "./paths"
+import Logout from "./components/logout/Logout"
 
 function App() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ function App() {
     // const result = await authService.login(Object.values(values))
 
     setAuth(result);
+    localStorage.setItem('accessToken', result.accessToken);
     navigate(Path.Home);
   }
 
@@ -29,15 +31,22 @@ function App() {
     const result = await authService.register(values.email, values.password);
 
     setAuth(result);
+    localStorage.setItem('accessToken', result.accessToken);
     navigate(Path.Home);
+  }
+
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
   }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
-    isAuthenticated: !!auth.email,
+    isAuthenticated: !!auth.accessToken,
   }
 
   return (
@@ -51,6 +60,7 @@ function App() {
           <Route path={Path.Details} element={<Details />} />
           <Route path={Path.Edit} element={<Edit />} />
           <Route path={Path.Login} element={<Login />} />
+          <Route path={Path.Logout} element={<Logout />} />
           {/* ако не подаваме през context, а през props */}
           {/* <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} /> */}
           <Route path={Path.Register} element={<Register />} />
