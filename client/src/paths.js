@@ -1,6 +1,6 @@
 const Path = {
     Home: '/',
-    Catalog: '/catalog',
+    Catalog: '/games-catalog',
     Create: '/create',
     Details: '/details',
     Edit: '/edit',

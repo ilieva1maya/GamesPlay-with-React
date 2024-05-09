@@ -67,7 +67,7 @@ function App() {
           {/* ако не подаваме през context, а през props */}
           {/* <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} /> */}
           <Route path={Path.Register} element={<Register />} />
-          <Route path='/catalog/:id' element={<Details />} />
+          <Route path='/games-catalog/:id' element={<Details />} />
         </Routes>
       </div>
     </AuthContext.Provider>

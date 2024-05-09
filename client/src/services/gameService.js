@@ -1,6 +1,6 @@
 import { request } from "../lib/request";
 
-const baseUrl = 'http://localhost:3030/jsonstore/catalog'
+const baseUrl = 'http://localhost:3030/data/games-catalog'
 
 export const getAll = async () => {
     // стандартен fetch

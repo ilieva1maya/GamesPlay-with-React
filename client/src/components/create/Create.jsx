@@ -21,7 +21,7 @@ export default function Create() {
             // const result = await gameService.create(gameData);
             // можем да го направим така
             await gameService.create(gameData);
-            navigate('/catalog');
+            navigate('/games-catalog');
         } catch (error) {
             // в последствие някаква логика, нотификация за грешки
             console.log(error);
