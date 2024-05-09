@@ -2,10 +2,9 @@ import { request } from "../lib/request";
 
 const baseUrl = 'http://localhost:3030/data/comments'
 
-export const create = async (id, username, text) => {
+export const create = async (id, text) => {
     const newComment = await request('POST', baseUrl, {
-        id,
-        username,
+        id,        
         text,
     });
 
@@ -15,8 +14,10 @@ export const create = async (id, username, text) => {
 export const getAll = async (id) => {
     // This is the better solution, but it will works after migration to collection service
     const query = new URLSearchParams({
-        where: `id="${id}"`
-    })
+        where: `id="${id}"`,
+        load: `owner=_ownerId:users`
+    });
+
     const result = await request('GET', `${baseUrl}?${query}`);
     return result;
 
