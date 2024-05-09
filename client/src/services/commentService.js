@@ -1,6 +1,6 @@
 import { request } from "../lib/request";
 
-const baseUrl = 'http://localhost:3030/jsonstore/comments'
+const baseUrl = 'http://localhost:3030/data/comments'
 
 export const create = async (id, username, text) => {
     const newComment = await request('POST', baseUrl, {
@@ -14,14 +14,15 @@ export const create = async (id, username, text) => {
 
 export const getAll = async (id) => {
     // This is the better solution, but it will works after migration to collection service
-    // const query = new URLSearchParams({
-    //     where: `id="${id}"`
-    // })
-    // const result = await request('GET', `${baseUrl}?${query}`);
-    // return Object.values(result);
+    const query = new URLSearchParams({
+        where: `id="${id}"`
+    })
+    const result = await request('GET', `${baseUrl}?${query}`);
+    return result;
 
-    // Temp solution
-    const result = await request('GET', baseUrl);
+    // Temp solution преи миграцията към collections
+    // const result = await request('GET', baseUrl);
 
-    return Object.values(result).filter(comment => comment.id === id);
+    // преди миграцията към collections, понеже връща обект
+    // return Object.values(result).filter(comment => comment.id === id);
 }

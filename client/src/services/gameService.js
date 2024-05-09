@@ -10,8 +10,9 @@ export const getAll = async () => {
 
     // или абстракция с помощна fetch функция
     const result = await request('GET', baseUrl);
-    // за да не ни върне и ключовете
-    return Object.values(result);
+    // за да не ни върне и ключовете (това е приложимо само за jsonstore)
+    // return Object.values(result);
+    return result;
 }
 
 export const getOne = async (id) => {
