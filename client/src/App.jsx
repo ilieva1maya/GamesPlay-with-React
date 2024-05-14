@@ -8,10 +8,12 @@ import Home from "./components/home/Home"
 import Login from "./components/login/Login"
 import Register from "./components/register/Register"
 import { Routes, Route, useNavigate } from "react-router-dom"
-import AuthContext from "./contexts/authContext"
+import { AuthProvider } from "./contexts/authContext"
+
 import * as authService from "./services/authService"
 import Path from "./paths"
 import Logout from "./components/logout/Logout"
+// import AuthContext from "./contexts/authContext"
 
 function App() {
   const navigate = useNavigate();
@@ -53,7 +55,8 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={values}>
+    // <AuthContext.Provider value={values}>
+    <AuthProvider value={values}>
       <div id="box">
         <Header />
         <Routes>
@@ -70,7 +73,8 @@ function App() {
           <Route path='/games-catalog/:id' element={<Details />} />
         </Routes>
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
+    // {/* </AuthContext.Provider> */}
   )
 }
 
