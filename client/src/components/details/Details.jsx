@@ -4,20 +4,11 @@ import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
 import Comment from "../details/Comment";
 import AuthContext from "../../contexts/authContext";
-
-const reducer = (state, action) => {
-    switch (action?.type) {
-        case 'GET_ALL_GAMES':
-            return [...action.payload];
-        case 'ADD_COMMENT':
-            return [...state, action.payload];
-        default:
-            return state;
-    }
-}
+import reducer from "./commentReducer";
+import useForm from "../../hooks/useForm";
 
 export default function Details() {
-    const { email } = useContext(AuthContext);
+    const { email, userId } = useContext(AuthContext);
     const [game, setGame] = useState({});
     // const [comments, setComments] = useState([]);
     const [comments, dispatch] = useReducer(reducer, []);
@@ -30,20 +21,17 @@ export default function Details() {
         commentService.getAll(id)
             .then((result) => {
                 dispatch({
-                    type: 'GET_ALL_GAMES',
+                    type: 'GET_ALL__COMMENTS',
                     payload: result,
                 })
             })
     }, [id]);
 
-    const addCommentHandler = async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.currentTarget);
+    const addCommentHandler = async (values) => {
 
         const newComment = await commentService.create(
             id,
-            formData.get('comment'),
+            values.comment,
         );
 
         newComment.owner = { email };
@@ -53,7 +41,13 @@ export default function Details() {
             type: 'ADD_COMMENT',
             payload: newComment
         });
-    }
+    };
+
+    const { values, onChange, onSubmit } = useForm(addCommentHandler, {
+        comment: '',
+    });
+
+    const isOwner = userId === game._ownerId;
 
     return (
         <section id="game-details">
@@ -93,18 +87,21 @@ export default function Details() {
                 </div>
 
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
-                <div className="buttons">
-                    <a href="#" className="button">Edit</a>
-                    <a href="#" className="button">Delete</a>
-                </div>
+                {isOwner && (
+                    <div className="buttons">
+                        <a href="#" className="button">Edit</a>
+                        <a href="#" className="button">Delete</a>
+                    </div>
+                )}
+
             </div>
 
             {/* <!-- Bonus -->
             <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
             <article className="create-comment">
                 <label>Add new comment:</label>
-                <form className="form" onSubmit={addCommentHandler}>
-                    <textarea name="comment" placeholder="Comment......"></textarea>
+                <form className="form" onSubmit={onSubmit}>
+                    <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
             </article>
