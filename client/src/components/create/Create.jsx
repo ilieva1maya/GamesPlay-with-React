@@ -26,7 +26,6 @@ export default function Create() {
             // в последствие някаква логика, нотификация за грешки
             console.log(error);
         }
-
     }
 
     return (

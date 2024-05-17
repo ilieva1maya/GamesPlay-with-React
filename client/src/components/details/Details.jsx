@@ -2,10 +2,12 @@ import { useContext, useEffect, useReducer, useState } from "react";
 import { useParams } from "react-router-dom";
 import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
-import Comment from "../details/Comment";
 import AuthContext from "../../contexts/authContext";
 import reducer from "./commentReducer";
 import useForm from "../../hooks/useForm";
+import { Link } from "react-router-dom";
+import Path from "../../paths";
+import { pathToUrl } from "../../utils/pathUtils";
 
 export default function Details() {
     const { email, userId } = useContext(AuthContext);
@@ -89,8 +91,10 @@ export default function Details() {
                 {/* <!-- Edit/Delete buttons ( Only for creator of this game )  --> */}
                 {isOwner && (
                     <div className="buttons">
-                        <a href="#" className="button">Edit</a>
-                        <a href="#" className="button">Delete</a>
+                        <Link to={pathToUrl(Path.Edit, {id})} className="button">Edit</Link>
+                        {/* <Link to="/games-catalog/:id/edit" className="button">Edit</Link> */}
+                        <Link to={`${Path.Catalog}/:id${Path.Delete}`} className="button">Edit</Link>
+                        {/* <Link to="/games-catalog/:id/delete"  className="button">Delete</Link> */}
                     </div>
                 )}
 

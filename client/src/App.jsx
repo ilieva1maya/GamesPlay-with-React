@@ -24,8 +24,7 @@ function App() {
           <Route path={Path.Edit} element={<Edit />} />
           <Route path={Path.Login} element={<Login />} />
           <Route path={Path.Logout} element={<Logout />} />
-          <Route path={Path.Register} element={<Register />} />
-          <Route path='/games-catalog/:id' element={<Details />} />
+          <Route path={Path.Register} element={<Register />} />          
         </Routes>
       </div>
     </AuthProvider>
