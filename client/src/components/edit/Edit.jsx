@@ -22,16 +22,16 @@ export default function Edit() {
             });
     }, [id]);
 
-    const createGameSubmitHandler = async (values) => {
+    const editGameSubmitHandler = async (values) => {
         try {
-            await gameService.create(values);
+            await gameService.edit(id, values);
             navigate('/games-catalog');
         } catch (error) {
             console.log(`Error from edit.jsx: ${error}`);
         }
     }
 
-    const { values, onChange, onSubmit } = useForm(createGameSubmitHandler, game);
+    const { values, onChange, onSubmit } = useForm(editGameSubmitHandler, game);
 
     return (
         <section id="edit-page" className="auth">

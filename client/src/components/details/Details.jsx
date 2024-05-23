@@ -95,7 +95,7 @@ export default function Details() {
                     <div className="buttons">
                         <Link to={pathToUrl(Path.Edit, { id })} className="button">Edit</Link>
                         {/* <Link to="/games-catalog/:id/edit" className="button">Edit</Link> */}
-                        <Link to={`${Path.Catalog}/:id${Path.Delete}`} className="button">Edit</Link>
+                        <Link to={`${Path.Catalog}/:id${Path.Delete}`} className="button">Delete</Link>
                         {/* <Link to="/games-catalog/:id/delete"  className="button">Delete</Link> */}
                     </div>
                 )}

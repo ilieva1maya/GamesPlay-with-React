@@ -37,3 +37,9 @@ export const create = async (gameData) => {
 
     return result
 }
+
+export const edit = async (id, gameData) => {
+    const result = await request('PUT', `${baseUrl}/${id}`, gameData);
+
+    return result
+}
