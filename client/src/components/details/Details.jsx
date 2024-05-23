@@ -48,7 +48,7 @@ export default function Details() {
     const { values, onChange, onSubmit } = useForm(addCommentHandler, {
         comment: '',
     });
-
+   
     const isOwner = userId === game._ownerId;
 
     return (

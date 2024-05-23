@@ -21,12 +21,12 @@ export default function Edit() {
             await gameService.create(values);
             navigate('/games-catalog');
         } catch (error) {
-            console.log(error);
+            console.log(`Error from edit.jsx: ${error}`);
         }
     }
 
     const {values, onChange, onSubmit} = useForm(createGameSubmitHandler, game);
-
+    
     return (
         <section id="edit-page" className="auth">
             <form id="edit" onSubmit={onSubmit}>

@@ -24,7 +24,7 @@ export default function Create() {
             navigate('/games-catalog');
         } catch (error) {
             // в последствие някаква логика, нотификация за грешки
-            console.log(error);
+            console.log(`Error from create.jsx: ${error}`);
         }
     }
 
