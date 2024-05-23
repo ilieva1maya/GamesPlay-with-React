@@ -1339,6 +1339,32 @@
     	}
     };
     var seedData = {
+        games: {
+            "1b82a613-c45f-43aa-81c8-ad956588e1cd": {
+                title: "Future before the past",
+                category: "Mystery",
+                maxLevel: "999",
+                imageUrl: "https://ftw.usatoday.com/wp-content/uploads/sites/90/2022/01/crimes-and-punishments-sherlock-holmes-02-e1641553303272.jpg?w=1000&h=600&crop=1",
+                summary: "Which is first? The Future or the Past?",
+                _id: "1b82a613-c45f-43aa-81c8-ad956588e1cd"
+            },
+            "db20957d-781c-477f-918a-91415b077d58": {
+                title: "The Elephant jump",
+                category: "Fun",
+                maxLevel: "21",
+                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdFcom9pT8SH7UKYJ7pzL5L2Ut24ceBKD2HhQznevJqBAixZoTNY5-0dTq0A8QC0kGWOM&usqp=CAU",
+                summary: "Jump, jump! Higher you jump, closer you come!",
+                _id: "db20957d-781c-477f-918a-91415b077d58"
+            },
+            "8ed6bf21-fd83-4981-92ae-c2379973f48f": {
+                title: "Save the Queen",
+                category: "Quest",
+                maxLevel: "57",
+                imageUrl: "https://cdn.akamai.steamstatic.com/steam/apps/428880/ss_daecd13cfedfa08709c52b544fea2411769c4013.1920x1080.jpg?t=1667030814",
+                summary: "The Queen is in danger! Be quick or loose the freedom of the Kingdom!",
+                _id: "8ed6bf21-fd83-4981-92ae-c2379973f48f"
+            }
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
