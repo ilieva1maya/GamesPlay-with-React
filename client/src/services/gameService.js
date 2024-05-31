@@ -1,6 +1,6 @@
 import { request } from "../lib/request";
 
-const baseUrl = 'http://localhost:3030/data/games-catalog'
+const baseUrl = 'http://localhost:3030/data/games'
 
 export const getAll = async () => {
     // стандартен fetch

@@ -1,9 +1,9 @@
 const Path = {
     Home: '/',
-    Catalog: '/games-catalog',
+    Catalog: '/games',
     Create: '/create',
-    Details: '/games-catalog/:id',
-    Edit: '/games-catalog/:id/edit',
+    Details: '/games/:id',
+    Edit: '/games/:id/edit',
     Delete: '/delete',
     Login: '/login',
     Register: '/register',

@@ -25,7 +25,7 @@ export default function Edit() {
     const editGameSubmitHandler = async (values) => {
         try {
             await gameService.edit(id, values);
-            navigate('/games-catalog');
+            navigate('/games');
         } catch (error) {
             console.log(`Error from edit.jsx: ${error}`);
         }
