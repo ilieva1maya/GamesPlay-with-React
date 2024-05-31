@@ -43,3 +43,5 @@ export const edit = async (id, gameData) => {
 
     return result
 }
+
+export const remove = async (id) => request('DELETE', `${baseUrl}/${id}`);

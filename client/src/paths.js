@@ -4,7 +4,7 @@ const Path = {
     Create: '/create',
     Details: '/games/:id',
     Edit: '/games/:id/edit',
-    Delete: '/delete',
+    Delete: '/games/:id/delete',
     Login: '/login',
     Register: '/register',
     Logout: '/logout',

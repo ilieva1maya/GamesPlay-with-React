@@ -1,5 +1,5 @@
 import { useContext, useEffect, useMemo, useReducer, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as gameService from '../../services/gameService';
 import * as commentService from '../../services/commentService';
 import AuthContext from "../../contexts/authContext";
@@ -15,6 +15,7 @@ export default function Details() {
     // const [comments, setComments] = useState([]);
     const [comments, dispatch] = useReducer(reducer, []);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         gameService.getOne(id)
@@ -42,6 +43,18 @@ export default function Details() {
         dispatch({
             type: 'ADD_COMMENT',
             payload: newComment
+        });
+    };
+
+    const deleteButtonHandler = async () => {
+        const hasConfirmed = confirm(`Are you sure you want to delete ${game.title}?`);
+
+        if (hasConfirmed) {
+            await gameService.remove(id);
+            navigate(Path.Catalog);
+        }
+        dispatch({
+
         });
     };
 
@@ -94,9 +107,9 @@ export default function Details() {
                 {isOwner && (
                     <div className="buttons">
                         <Link to={pathToUrl(Path.Edit, { id })} className="button">Edit</Link>
-                        {/* <Link to="/games-catalog/:id/edit" className="button">Edit</Link> */}
-                        <Link to={`${Path.Catalog}/:id${Path.Delete}`} className="button">Delete</Link>
-                        {/* <Link to="/games-catalog/:id/delete"  className="button">Delete</Link> */}
+                        {/* <Link to={pathToUrl(Path.Delete, { id })} className="button">Delete</Link> */}
+                        <button className="button" onClick={deleteButtonHandler}>Delete</button>
+      
                     </div>
                 )}
 
