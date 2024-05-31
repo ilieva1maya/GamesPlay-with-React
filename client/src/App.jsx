@@ -10,6 +10,9 @@ import Register from "./components/register/Register"
 import { Routes, Route } from "react-router-dom"
 import { AuthProvider } from "./contexts/authContext"
 import Path from "./paths"
+import AuthGuard from "./components/guards/AuthGuard"
+
+// import BaseAuthGuard from "./components/guards/BaseAuthGuard"
 
 function App() {
   return (
@@ -19,12 +22,16 @@ function App() {
         <Routes>
           <Route path={Path.Home} element={<Home />} />
           <Route path={Path.Catalog} element={<Catalog />} />
-          <Route path={Path.Create} element={<Create />} />
-          <Route path={Path.Details} element={<Details />} />
-          <Route path={Path.Edit} element={<Edit />} />
+          {/* <Route path={Path.Create} element={<BaseAuthGuard> <Create /> </BaseAuthGuard>} /> */}
           <Route path={Path.Login} element={<Login />} />
-          <Route path={Path.Logout} element={<Logout />} />
-          <Route path={Path.Register} element={<Register />} />          
+          <Route path={Path.Register} element={<Register />} />
+
+          <Route element={<AuthGuard />}>
+            <Route path={Path.Create} element={<Create />} />
+            <Route path={Path.Details} element={<Details />} />
+            <Route path={Path.Edit} element={<Edit />} />
+            <Route path={Path.Logout} element={<Logout />} />
+          </Route>
         </Routes>
       </div>
     </AuthProvider>
