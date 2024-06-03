@@ -53,16 +53,11 @@ export default function Details() {
             await gameService.remove(id);
             navigate(Path.Catalog);
         }
-        dispatch({
-
-        });
     };
 
-    const initialValues = useMemo(() => ({
+    const { values, onChange, onSubmit } = useForm(addCommentHandler, {
         comment: '',
-    }), [])
-
-    const { values, onChange, onSubmit } = useForm(addCommentHandler, initialValues);
+    });
 
     const isOwner = userId === game._ownerId;
 
