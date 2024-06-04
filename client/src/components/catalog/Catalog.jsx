@@ -9,7 +9,6 @@ export default function Catalog() {
         gameService.getAll()
             .then(result => setGames(result));
     }, []);
-
   
     return (
         <section id="catalog-page">
